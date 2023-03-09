@@ -1,0 +1,18 @@
+{% extends 'main_website/base.html' %}
+
+{% block title %}
+Games
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to games on my website</h1>
+{% endblock %}
+
+
+    game = Game()
+    asyncio.run(game.run())
+
+
+{% block copiright %}
+     <p class="mb-1"> 2023 Website by Bohatyrchuk (c)</p>
+{% endblock %}

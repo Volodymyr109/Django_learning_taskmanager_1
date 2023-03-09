@@ -1,0 +1,24 @@
+{% extends 'main_website/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to tasks base</h1>
+    {% if tasks %}
+        {% for el in tasks %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.task }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>We haven't notice 404 :( </p>
+{% endif %}
+{% endblock %}
+
+
+{% block copiright %}
+     <p class="mb-1"> 2023 Website by Bohatyrchuk (c)</p>
+{% endblock %}
