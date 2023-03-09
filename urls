@@ -1,0 +1,25 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='home'),
+    path('tasker', views.tasker, name='tasks'),
+    path('new_task', views.new_task, name='new_tasks'),
+    path('creator', views.creator, name='authors'),
+    path('support', views.support, name='help'),
+    path('games', views.games, name='game'),
+    path('account', views.account, name='acc'),
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
