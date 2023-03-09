@@ -1,0 +1,49 @@
+from django.shortcuts import render
+from .models import Task
+from .forms import TaskForm
+from .game import TicTacToe
+from .game import Game
+import asyncio
+
+
+
+def index(request):
+    return render(request, 'main_website/index.html', {'title': 'Main Page of website'})
+
+
+def tasker(request):
+    tasks = Task.objects.order_by('id')[:25]
+    return render(request, 'main_website/tasker.html', {'title': 'Base of task', 'tasks': tasks})
+
+
+def new_task(request):
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    form = TaskForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'main_website/new_task.html', context)
+
+
+def games(request):
+    title = "Game!"
+    main_website = "games.html"
+    game = Game()
+    asyncio.run(game.run())
+    return render(request, 'main_website/games.html', main_website, {'title': title})
+
+
+def creator(request):
+    return render(request, 'main_website/creator.html')
+
+
+def support(request):
+    return render(request, 'main_website/support.html')
+
+
+def account(request):
+    return render(request, 'main_website/account.html')
